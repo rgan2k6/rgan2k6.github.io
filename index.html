@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reagan Leaf — Websites for service businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#F6F7F4;
+  --panel:#EBEEE8;
+  --ink:#1B231E;
+  --ink-soft:#57635B;
+  --leaf:#2E7D4F;
+  --pine:#16382A;
+  --line:#D8DED6;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141A16;--panel:#1C241E;--ink:#E9EEE9;--ink-soft:#A2AEA5;
+    --leaf:#5CB884;--pine:#0E1F17;--line:#2A342C;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141A16;--panel:#1C241E;--ink:#E9EEE9;--ink-soft:#A2AEA5;
+  --leaf:#5CB884;--pine:#0E1F17;--line:#2A342C;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Figtree",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
+.wrap{max-width:920px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+
+/* nav */
+header{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+.mark{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.08rem}
+.mark svg{width:20px;height:20px;color:var(--leaf)}
+.nav-links{display:none;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:.92rem;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:.9rem;font-weight:600;text-decoration:none;background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:8px;white-space:nowrap}
+@media(min-width:760px){.nav-links{display:flex}}
+
+/* hero */
+.hero{padding:60px 0 50px;border-bottom:1px solid var(--line)}
+.hero h1{font-weight:700;font-size:clamp(2.2rem,7.6vw,3.9rem);line-height:1.04;letter-spacing:-.02em;max-width:17ch}
+.hero h1 .leaf-dot{color:var(--leaf)}
+.hero p{margin-top:18px;max-width:52ch;color:var(--ink-soft);font-size:1.05rem}
+.hero-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.95rem;padding:13px 22px;border-radius:8px}
+.btn-solid{background:var(--leaf);color:#fff}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+
+section{padding:60px 0}
+.sec-head{max-width:56ch;margin-bottom:34px}
+.sec-head h2{font-weight:600;font-size:clamp(1.6rem,4.6vw,2.2rem);line-height:1.15;letter-spacing:-.01em}
+.sec-head p{margin-top:10px;color:var(--ink-soft)}
+
+/* work — style-tile cards */
+.work{display:grid;gap:20px;border-bottom:none}
+.tile{
+  display:block;text-decoration:none;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);
+  transition:border-color .18s ease;
+}
+.tile:hover{border-color:var(--leaf)}
+.tile-strip{display:flex;height:74px}
+.tile-strip span{flex:1}
+.tile-type{padding:16px 18px 4px;font-size:1.7rem;line-height:1.1}
+.tile-body{padding:0 18px 18px}
+.tile-body b{display:block;font-weight:600;margin-top:8px}
+.tile-body p{font-size:.92rem;color:var(--ink-soft);margin-top:4px;max-width:56ch}
+.tile-body .visit{display:inline-block;margin-top:12px;font-size:.88rem;font-weight:600;color:var(--leaf)}
+.t-fern .tile-type{font-family:Georgia,"Times New Roman",serif;color:#22302A}
+.t-alba .tile-type{font-family:Georgia,"Times New Roman",serif;letter-spacing:.03em;color:#322A30}
+.t-black .tile-type{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;color:#EDF0F4}
+.t-fern .tile-top{background:#F1F2EC}
+.t-alba .tile-top{background:#F7F6F3}
+.t-black .tile-top{background:#141922}
+@media(min-width:760px){.work{grid-template-columns:1fr 1fr 1fr}.tile-type{font-size:1.4rem}}
+
+/* services */
+.services-sec{background:var(--panel);border-radius:16px;padding:40px 26px}
+.services{display:grid;gap:24px}
+.service h3{font-weight:600;font-size:1.15rem}
+.service p{margin-top:6px;font-size:.94rem;color:var(--ink-soft)}
+.service .from{margin-top:8px;font-size:.86rem;color:var(--leaf);font-weight:600}
+@media(min-width:760px){.services{grid-template-columns:1fr 1fr 1fr}}
+
+/* how I work */
+.how ul{list-style:none;max-width:640px}
+.how li{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.how li b{font-weight:600}
+.how li span{font-size:.94rem;color:var(--ink-soft)}
+
+/* about */
+.about{display:grid;gap:20px;align-items:start}
+.about p{color:var(--ink-soft);max-width:58ch}
+.about p b{color:var(--ink);font-weight:600}
+
+/* contact */
+.contact{background:var(--pine);color:#EAF2EC;border-radius:16px;padding:48px 26px}
+.contact h2{font-weight:700;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.1;letter-spacing:-.015em;max-width:18ch}
+.contact p{margin-top:14px;max-width:48ch;opacity:.85}
+.contact .btn{margin-top:24px;background:var(--leaf);color:#fff}
+.contact .alt{margin-top:14px;font-size:.9rem;opacity:.75}
+
+footer{border-top:1px solid var(--line);padding:26px 0 42px;font-size:.88rem;color:var(--ink-soft)}
+.foot{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+.foot a{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="#top">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5c-7.5.3-12.8 2.7-15.4 6.6-2 3-1.9 6.5-.6 9 .3-2.6 1.6-5.7 4.3-8.2-1.5 2.7-2.4 5.9-2 9.4 2.7 1 6.1.8 8.8-1.2 3.9-2.9 5.2-8.3 4.9-15.6z"/></svg>
+      Reagan Leaf
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Start a project</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <section class="hero">
+    <h1>Websites that make service businesses look as good as their work<span class="leaf-dot">.</span></h1>
+    <p>I'm Reagan — a web designer and developer building fast, clean, conversion-focused sites for landscapers, clinics, shops, and trades. Clear pricing, quick turnaround, and a site you can actually update yourself.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#contact">Start a project</a>
+      <a class="btn btn-ghost" href="#work">See my work</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <p>Three recent builds, three different industries — each with its own visual system, all fully responsive with dark mode support. Tap any card to visit the live site.</p>
+    </div>
+    <div class="work">
+
+      <a class="tile t-fern" href="fernbrook/">
+        <div class="tile-top">
+          <div class="tile-type">Fernbrook</div>
+          <div class="tile-strip" aria-hidden="true">
+            <span style="background:#F1F2EC"></span><span style="background:#E2E7DA"></span>
+            <span style="background:#58705F"></span><span style="background:#8A6D3F"></span><span style="background:#1C2B23"></span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <b>Fernbrook Design + Build</b>
+          <p>Landscape architecture studio. Editorial serif typography with animated contour-line drawings and SVG site plans in place of stock photos.</p>
+          <span class="visit">Visit live site</span>
+        </div>
+      </a>
+
+      <a class="tile t-alba" href="alba/">
+        <div class="tile-top">
+          <div class="tile-type">Alba</div>
+          <div class="tile-strip" aria-hidden="true">
+            <span style="background:#F7F6F3"></span><span style="background:#ECE9E4"></span>
+            <span style="background:#C4A0A8"></span><span style="background:#714A57"></span><span style="background:#322A30"></span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <b>Alba Skin Clinic</b>
+          <p>Physician-directed med spa. Quiet clinical luxury — classical serif, open pricing set like a fine-dining menu, soft light motifs.</p>
+          <span class="visit">Visit live site</span>
+        </div>
+      </a>
+
+      <a class="tile t-black" href="blackline/">
+        <div class="tile-top">
+          <div class="tile-type">BLACKLINE</div>
+          <div class="tile-strip" aria-hidden="true">
+            <span style="background:#141922"></span><span style="background:#1C2330"></span>
+            <span style="background:#2C3646"></span><span style="background:#E7A63C"></span><span style="background:#EDF0F4"></span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <b>Blackline Detail Co.</b>
+          <p>Paint correction and ceramic coating studio. Dark automotive design with an interactive before/after comparison slider.</p>
+          <span class="visit">Visit live site</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="services-sec">
+      <div class="sec-head">
+        <h2>What I build</h2>
+      </div>
+      <div class="services">
+        <div class="service">
+          <h3>Full business websites</h3>
+          <p>Home, services, work, about, contact — designed around how customers actually decide to call you. Built clean, loads fast, works on every phone.</p>
+          <div class="from">Fixed quote, from $500</div>
+        </div>
+        <div class="service">
+          <h3>Landing pages</h3>
+          <p>A single focused page for an offer, an ad campaign, or a booking funnel. Connected to your existing forms, calendars, or CRM.</p>
+          <div class="from">Fixed quote, from $200</div>
+        </div>
+        <div class="service">
+          <h3>Fixes and refreshes</h3>
+          <p>Site loads slow, looks dated, or breaks on mobile? I'll tell you honestly whether it needs a tune-up or a rebuild — and quote both.</p>
+          <div class="from">Quoted after a quick look, free</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="sec-head">
+      <h2>How I work</h2>
+    </div>
+    <ul>
+      <li><b>Fixed quotes, in writing</b><span>You know the full price before I start. No hourly meters, no surprise invoices.</span></li>
+      <li><b>Fast, honest communication</b><span>Same-day replies, plain English, and I'll tell you when something isn't worth paying for.</span></li>
+      <li><b>You own everything</b><span>Your domain, your hosting, your files. Nothing held hostage, ever.</span></li>
+      <li><b>Revisions until it's right</b><span>Every project includes structured revision rounds at each milestone — approved before I move on.</span></li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <div class="sec-head">
+      <h2>About me</h2>
+    </div>
+    <div class="about">
+      <p>I've spent my working life <b>outdoors with my hands</b> — engines, equipment, hard physical work where things either function or they don't. I bring that same standard to the web: <b>sites that work, built right, delivered when I said they would be.</b></p>
+      <p>I build for service businesses because I understand them from the inside. I know what makes a customer trust a shop before they've ever walked in — and that's exactly what your website has one chance to do.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Tell me about your business.</h2>
+      <p>Send a few sentences about what you do and what you need. I'll reply the same day with honest thoughts and a fixed quote — no pressure, no follow-up spam.</p>
+      <a class="btn" href="mailto:reagan@reaganleaf.com">Email reagan@reaganleaf.com</a>
+      <p class="alt">Or find me on Upwork and <a href="https://github.com/rgan2k6">GitHub</a>.</p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>Reagan Leaf — Web design and development</div>
+    <div><a href="https://github.com/rgan2k6">GitHub</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

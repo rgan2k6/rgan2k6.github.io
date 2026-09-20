@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blackline Detail Co. — Paint correction &amp; ceramic coating, Knoxville TN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#141922;
+  --panel:#1C2330;
+  --panel-2:#232C3B;
+  --ink:#EDF0F4;
+  --ink-soft:#9AA6B5;
+  --amber:#E7A63C;
+  --amber-deep:#B77E22;
+  --line:#2C3646;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10141C;--panel:#181F2A;--panel-2:#202836;--line:#283241;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10141C;--panel:#181F2A;--panel-2:#202836;--line:#283241;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Big Shoulders Display","Arial Narrow",sans-serif;text-transform:none}
+
+/* nav */
+header{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+.mark{
+  font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:1.35rem;
+  letter-spacing:.03em;text-decoration:none;
+}
+.mark em{font-style:normal;color:var(--amber)}
+.nav-links{display:none;gap:26px;list-style:none}
+.nav-links a{text-decoration:none;font-size:.92rem;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  font-weight:700;font-size:.9rem;text-decoration:none;
+  background:var(--amber);color:#14161A;padding:10px 16px;border-radius:6px;white-space:nowrap;
+}
+@media(min-width:760px){.nav-links{display:flex}}
+a:focus-visible,input:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* hero */
+.hero{padding:54px 0 46px;border-bottom:1px solid var(--line)}
+.hero h1{
+  font-weight:800;font-size:clamp(2.7rem,10vw,5rem);line-height:.98;
+  letter-spacing:.005em;max-width:14ch;
+}
+.hero .lede{margin-top:18px;max-width:50ch;color:var(--ink-soft);font-size:1.04rem}
+.hero .facts{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:.9rem;color:var(--ink-soft)}
+.hero .facts b{color:var(--ink);font-weight:700}
+.hero-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.95rem;padding:13px 22px;border-radius:6px}
+.btn-solid{background:var(--amber);color:#14161A}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+
+/* before/after slider */
+.compare-sec{padding:60px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:56ch;margin-bottom:30px}
+.sec-head h2{font-weight:700;font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.05}
+.sec-head p{margin-top:10px;color:var(--ink-soft)}
+.compare{
+  position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);
+  aspect-ratio:16/9;max-height:420px;user-select:none;touch-action:none;
+}
+.pane{position:absolute;inset:0}
+.pane svg{width:100%;height:100%;display:block}
+.pane.after{clip-path:inset(0 0 0 var(--split,50%))}
+.divider{
+  position:absolute;top:0;bottom:0;left:var(--split,50%);width:2px;
+  background:var(--amber);transform:translateX(-1px);pointer-events:none;
+}
+.divider::after{
+  content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:var(--amber);color:#14161A;font-size:.7rem;font-weight:700;
+  padding:7px 9px;border-radius:999px;letter-spacing:.05em;white-space:nowrap;
+}
+.tag{
+  position:absolute;bottom:12px;font-size:.75rem;font-weight:700;letter-spacing:.04em;
+  background:rgba(10,13,18,.72);padding:5px 10px;border-radius:5px;pointer-events:none;
+}
+.tag.before{left:12px}
+.tag.after{right:12px}
+.compare input[type=range]{
+  position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;
+  -webkit-appearance:none;appearance:none;
+}
+.compare-note{margin-top:12px;font-size:.85rem;color:var(--ink-soft)}
+
+/* packages */
+.packages-sec{padding:60px 0;border-bottom:1px solid var(--line)}
+.packages{display:grid;gap:16px}
+.pkg{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px 22px;display:flex;flex-direction:column}
+.pkg.feature{background:var(--panel-2);border-color:var(--amber-deep)}
+.pkg h3{font-weight:700;font-size:1.5rem;letter-spacing:.02em}
+.pkg .price{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:2.1rem;color:var(--amber);margin-top:4px}
+.pkg .per{font-size:.85rem;color:var(--ink-soft);font-family:"Public Sans",sans-serif;font-weight:400}
+.pkg ul{list-style:none;margin-top:14px;flex:1}
+.pkg li{padding:7px 0;border-top:1px solid var(--line);font-size:.93rem;color:var(--ink-soft)}
+.pkg li b{color:var(--ink);font-weight:600}
+.pkg .btn{margin-top:18px;text-align:center}
+@media(min-width:820px){.packages{grid-template-columns:1fr 1fr 1fr}}
+
+/* ceramic */
+.ceramic{padding:60px 0;border-bottom:1px solid var(--line)}
+.ceramic-grid{display:grid;gap:26px}
+.ceramic-item{border-left:2px solid var(--amber);padding-left:16px}
+.ceramic-item h3{font-weight:700;font-size:1.25rem;letter-spacing:.02em}
+.ceramic-item p{margin-top:6px;font-size:.94rem;color:var(--ink-soft);max-width:52ch}
+@media(min-width:760px){.ceramic-grid{grid-template-columns:1fr 1fr}}
+
+/* reviews */
+.reviews{padding:60px 0;border-bottom:1px solid var(--line)}
+.review-grid{display:grid;gap:16px}
+.review{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.review p{font-size:.96rem}
+.review .who{margin-top:12px;font-size:.85rem;color:var(--ink-soft)}
+.review .stars{color:var(--amber);letter-spacing:.15em;font-size:.85rem;margin-bottom:8px}
+@media(min-width:760px){.review-grid{grid-template-columns:1fr 1fr}}
+
+/* cta */
+.cta{padding:64px 0}
+.cta h2{font-weight:800;font-size:clamp(2.2rem,8vw,3.6rem);line-height:1;max-width:16ch}
+.cta p{margin-top:14px;color:var(--ink-soft);max-width:48ch}
+.cta .btn{margin-top:24px}
+
+footer{border-top:1px solid var(--line);padding:26px 0 42px;font-size:.86rem;color:var(--ink-soft)}
+.foot{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="#top">BLACK<em>LINE</em></a>
+    <ul class="nav-links">
+      <li><a href="#work">Before + after</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#ceramic">Ceramic coating</a></li>
+    </ul>
+    <a class="nav-cta" href="#book">Get a quote</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <section class="hero">
+    <h1>Your paint has one shot at perfect.</h1>
+    <p class="lede">Blackline is a two-bay correction and coating studio in Knoxville. We fix what the tunnel wash did, then coat it so it never happens again. By appointment only — one vehicle per bay, never rushed.</p>
+    <div class="facts">
+      <span><b>600+</b> vehicles corrected</span>
+      <span><b>5-star</b> average, 140 reviews</span>
+      <span><b>Certified</b> coating installer</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#book">Get a quote</a>
+      <a class="btn btn-ghost" href="#work">See the difference</a>
+    </div>
+  </section>
+
+  <section class="compare-sec" id="work">
+    <div class="sec-head">
+      <h2>Drag the line. That's the job.</h2>
+      <p>Left: typical daily-driven paint under shop lights — swirl marks, haze, dull reflections. Right: the same panel after two-stage machine correction.</p>
+    </div>
+
+    <div class="compare" id="compare" style="--split:50%">
+      <div class="pane before" aria-hidden="true">
+        <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="dull" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3A414D"/><stop offset=".45" stop-color="#2A303B"/>
+              <stop offset=".55" stop-color="#232935"/><stop offset="1" stop-color="#1B2029"/>
+            </linearGradient>
+            <filter id="haze"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .06 0"/><feComposite operator="over" in2="SourceGraphic"/></filter>
+          </defs>
+          <rect width="800" height="450" fill="url(#dull)" filter="url(#haze)"/>
+          <g stroke="#9AA3AE" stroke-width="1" fill="none" opacity=".35">
+            <circle cx="200" cy="150" r="70"/><circle cx="210" cy="160" r="110"/><circle cx="460" cy="300" r="90"/>
+            <circle cx="470" cy="290" r="130"/><circle cx="640" cy="120" r="80"/><circle cx="330" cy="380" r="100"/>
+            <circle cx="120" cy="330" r="60"/><circle cx="700" cy="330" r="110"/>
+          </g>
+          <g stroke="#8C96A2" stroke-width=".7" fill="none" opacity=".3">
+            <path d="M0,60 L800,180"/><path d="M0,140 L800,260"/><path d="M0,240 L800,90"/><path d="M0,380 L800,300"/>
+          </g>
+          <rect x="0" y="40" width="800" height="26" fill="#AEB6C0" opacity=".12"/>
+        </svg>
+      </div>
+      <div class="pane after" aria-hidden="true">
+        <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4A5568"/><stop offset=".38" stop-color="#222A38"/>
+              <stop offset=".5" stop-color="#10151E"/><stop offset=".62" stop-color="#1C2431"/>
+              <stop offset="1" stop-color="#0C1016"/>
+            </linearGradient>
+            <linearGradient id="streak" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#E7A63C" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#F4D9A6" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#E7A63C" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="450" fill="url(#gloss)"/>
+          <rect x="0" y="40" width="800" height="18" fill="#DDE5EE" opacity=".5"/>
+          <rect x="0" y="64" width="800" height="5" fill="#DDE5EE" opacity=".25"/>
+          <ellipse cx="400" cy="235" rx="330" ry="26" fill="url(#streak)" opacity=".5"/>
+          <rect x="0" y="330" width="800" height="3" fill="#9FB2C8" opacity=".22"/>
+        </svg>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <span class="tag before">Before</span>
+      <span class="tag after">After correction</span>
+      <input type="range" min="0" max="100" value="50" step="0.5" aria-label="Reveal before and after paint correction comparison">
+    </div>
+    <p class="compare-note">Illustration of typical results. Real before/after photos of your vehicle are documented at drop-off and delivery.</p>
+  </section>
+
+  <section class="packages-sec" id="packages">
+    <div class="sec-head">
+      <h2>Straightforward packages</h2>
+      <p>Sedan pricing shown; trucks and SUVs quoted at drop-off. Every package starts with a full decontamination wash.</p>
+    </div>
+    <div class="packages">
+      <div class="pkg">
+        <h3>The Reset</h3>
+        <div class="price">$249 <span class="per">half day</span></div>
+        <ul>
+          <li><b>Decon wash</b> — iron remover, clay bar, foam</li>
+          <li><b>One-step polish</b> — restores gloss, cuts light swirls</li>
+          <li><b>Interior detail</b> — vacuum, steam, glass</li>
+          <li><b>Sealant</b> — 6 months of protection</li>
+        </ul>
+        <a class="btn btn-ghost" href="#book">Book The Reset</a>
+      </div>
+      <div class="pkg feature">
+        <h3>Full Correction</h3>
+        <div class="price">$749 <span class="per">1–2 days</span></div>
+        <ul>
+          <li><b>Everything in The Reset</b></li>
+          <li><b>Two-stage machine correction</b> — removes 85–95% of defects</li>
+          <li><b>Paint depth mapping</b> — measured before any pad touches paint</li>
+          <li><b>Documented results</b> — before/after photos under shop lights</li>
+        </ul>
+        <a class="btn btn-solid" href="#book">Book Full Correction</a>
+      </div>
+      <div class="pkg">
+        <h3>Correct + Ceramic</h3>
+        <div class="price">$1,449 <span class="per">2–3 days</span></div>
+        <ul>
+          <li><b>Everything in Full Correction</b></li>
+          <li><b>Professional ceramic coating</b> — 5-year rated</li>
+          <li><b>Wheels + glass coated</b></li>
+          <li><b>Annual inspection</b> — first year included</li>
+        </ul>
+        <a class="btn btn-ghost" href="#book">Book Correct + Ceramic</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ceramic" id="ceramic">
+    <div class="sec-head">
+      <h2>Ceramic coating, minus the sales pitch</h2>
+      <p>It's not a force field. Here's what it actually does and doesn't do.</p>
+    </div>
+    <div class="ceramic-grid">
+      <div class="ceramic-item">
+        <h3>What it does</h3>
+        <p>Bonds a hard, slick layer to corrected paint. Water sheets off, road grime doesn't stick, UV fade slows dramatically, and washing takes half the time for years.</p>
+      </div>
+      <div class="ceramic-item">
+        <h3>What it doesn't</h3>
+        <p>It won't stop rock chips or door dings, and it isn't an excuse to use the tunnel wash. Anyone who tells you otherwise is selling you the wrong thing.</p>
+      </div>
+      <div class="ceramic-item">
+        <h3>Why correction comes first</h3>
+        <p>A coating locks in whatever is under it — including swirls. We correct the paint first so you're sealing in a finish worth keeping.</p>
+      </div>
+      <div class="ceramic-item">
+        <h3>How it lasts</h3>
+        <p>Wash it right and come by once a year for a free inspection and top-up. Our oldest coatings are five years in and still beading.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="sec-head">
+      <h2>What owners say</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Black truck, four years of gas-station washes. I genuinely didn't recognize it at pickup. They showed me the paint depth readings and explained every step."</p>
+        <div class="who">F-150 owner — Full Correction</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Two other shops quoted me a coating over uncorrected paint. Blackline was the only one who said no, fix it first. That honesty is why they got the job."</p>
+        <div class="who">Model 3 owner — Correct + Ceramic</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="book">
+    <h2>Get a real quote in one text.</h2>
+    <p>Send the year, make, model, and color. We'll reply the same day with honest pricing and the next open bay — usually inside two weeks.</p>
+    <a class="btn btn-solid" href="#book">Get a quote</a>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>Blackline Detail Co. — Knoxville, TN. By appointment.</div>
+    <div>Demonstration site. Design and code by Reagan Leaf.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var box=document.getElementById('compare');
+  if(!box)return;
+  var range=box.querySelector('input[type=range]');
+  function set(v){box.style.setProperty('--split',v+'%')}
+  range.addEventListener('input',function(){set(range.value)});
+  set(range.value);
+})();
+</script>
+
+</body>
+</html>
